@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="newlogo.png">
+    <title>Search Results - Wanderlust</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style1.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: left;
+            font-size: 2.5rem;
+        }
+        .package-card {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+        .package-card:hover {
+            transform: translateY(-5px);
+        }
+        .package-info {
+            flex: 1;
+            padding: 25px;
+        }
+        .package-image {
+            width: 350px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 0;
+            transition: transform 0.3s ease;
+            margin-right: 50px;
+        }
+        .package-image:hover {
+            transform: scale(1.05);
+        }
+        .card-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .card-text p {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            color: #34495e;
+        }
+        .card-text strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        .btn-primary {
+            background-color: #3498db;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: #95a5a6;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #7f8c8d;
+            transform: translateY(-2px);
+        }
+        .alert {
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .budget-tag {
+            background-color: #2a30c0;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .destination-badge {
+            background-color: #2c265e;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 style="text-decoration: underline;"><b>Available Packages :</b></h1>
+        <div class="alert alert-info">
+            <%= message %>
+        </div>
+        
+        <% if (!packages || packages.length === 0) { %>
+            <div class="alert alert-warning">
+                <h4>No packages found</h4>
+                <p>Try searching with a different destination or higher budget.</p>
+            </div>
+        <% } else { %>
+            <div class="row">
+                <% 
+                const roomImages = ['room 2.jpg', 'room3.jpg', 'room 4.jpg', 'room5.jpg', 'room 6.jpg'];
+                packages.forEach((package, index) => { 
+                    const randomImage = roomImages[index % roomImages.length];
+                %>
+                    <div class="col-12">
+                        <div class="package-card">
+                            <div class="package-info">
+                                <span class="destination-badge"><i class="fas fa-map-marker-alt"></i> <%= package.Destination %></span>
+                                <h5 class="card-title"><%= package.Hotels %></h5>
+                                <div class="card-text">
+                                    <p><i class="fas fa-utensils"></i> <strong>Restaurant:</strong> <%= package.Restaurant %></p>
+                                    <p><i class="fas fa-landmark"></i> <strong>Places to Visit:</strong> <%= package.PlacesToVisit %></p>
+                                    <div class="budget-tag">
+                                        <i class="fas fa-rupee-sign"></i> <%= package.Budget %>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" onclick="bookPackage('<%= package.id %>')">
+                                    <i class="fas fa-calendar-check"></i> Book Now
+                                </button>
+                            </div>
+                            <img src="/<%= randomImage %>" alt="Room Image" class="package-image">
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        <% } %>
+        
+        <a href="/home" class="btn btn-secondary mt-4">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+
+    <script>
+        function bookPackage(packageId) {
+            // Add booking functionality here
+            alert('Booking functionality will be added soon!');
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

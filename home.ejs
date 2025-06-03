@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="newlogo.png">
+  <title>WanderLust - Time to go</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main">
+    <div class="upperbar">
+      <div class="upperleft">
+        <img src="newlogo.png" alt="Logo" class="logo">
+        <h1>WanderLust</h1>
+      </div>
+      <div class="upperright">
+        <div id="userSection">
+          <a href="signin.html" id="signInLink">
+            <button class="sign">Sign in</button>
+          </a>
+          <div id="userNameDisplay" style="display: none;">
+            <button class="sign" onclick="logout()">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="lowerbar">
+        <nav class="navbar">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#">Place</a></li>
+              <li><a href="hotels.html">Hotels</a></li>
+              <li><a href="#">Things to Do</a></li>
+              <li><a href="#contact-section">Contact</a></li>
+            </ul>
+          </nav>
+    </div>
+    <p class="heading">Personalise your travel</p>
+    <p class="heading">planning with Trips</p>
+    <div class="search-container">
+        <form action="/search-packages" method="POST" class="search-form" style="display: flex; flex-direction: column; align-items: center;">
+            <input type="text" name="destination" placeholder="Enter Destination" class="destination-input" required style="margin-bottom: 10px;">
+            <input type="date" class="date-input" style="margin-bottom: 10px;">
+            <input type="number" name="budget" placeholder="Your Budget" class="people-input" required style="margin-bottom: 10px;">
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+    </div>
+    <h3>Popular Destinations :</h3>
+    <div class="images-containeror">
+        <div class="img3">
+            <img src="place3.jpg" alt="Image 1" class="gallery-img">
+            <p class="card-title">Indore</p>
+        </div>
+        <div class="img2">
+            <img src="place2.jpg" alt="Image 2" class="gallery-img">
+            <p class="card-title">Agra</p>
+        </div>
+        <div class="img1">
+            <img src="place1.jpg" alt="Image 3" class="gallery-img">
+            <p class="card-title">Jaipur</p>
+        </div>    
+    </div>
+    <hr />
+    <h3>Hotels :</h3>
+    <div class="image-container">
+        <div class="imgg1">
+            <img src="ramada.jpg" alt="Image 11" class="gallery-img">
+        </div>
+        <div class="imgg2">
+            <img src="room 2.jpg" alt="Image 22" class="gallery-img">
+        </div>
+        <div class="imgg3">
+            <img src="room3.jpg" alt="Image 33" class="gallery-img">
+        </div>
+        <div class="imgg4">
+            <img src="room 4.jpg" alt="Image 44" class="gallery-img">
+        </div>
+        <div class="imgg5">
+            <img src="room5.jpg" alt="Image 55" class="gallery-img">
+        </div>
+        <div class="imgg6">
+            <img src="room 6.jpg" alt="Image 66" class="gallery-img">
+        </div>
+    </div>
+    <hr />
+    <h3>Restaurants :</h3>
+    <div class="image-container">
+        <div class="imgg1">
+            <img src="dish6 burger.jpg" alt="Image 111" class="gallery-img">
+        </div>
+        <div class="imgg2">
+            <img src="dish 1.jpg" alt="Image 222" class="gallery-img">
+        </div>
+        <div class="imgg3">
+            <img src="dish2.jpg" alt="Image 333" class="gallery-img">
+        </div>
+        <div class="imgg4">
+            <img src="dish3.jpg" alt="Image 444" class="gallery-img">
+        </div>
+        <div class="imgg5">
+            <img src="dish4.jpg" alt="Image 555" class="gallery-img">
+        </div>
+        <div class="imgg6">
+            <img src="dish5.jpg" alt="Image 666" class="gallery-img">
+        </div>
+    </div>
+    <hr />
+    <div class="footer" id="contact-section">
+        <p class="foo">For any Query :</p>
+        <p class="foo">Mail us : wanderlust.travel@gmail.com</p>
+        <p class="foo">Contact us : 123-456-789</p>
+        <p class="foo">Follow us on :</p>
+        <div class="logos">
+          <div class="imgg6">
+            <a href="https://www.youtube.com/" target="_blank">
+              <img src="youtube.jpg" alt="YouTube" class="galleryimg1">
+            </a>
+          </div>
+          <div class="imgg6">
+            <a href="https://twitter.com/" target="_blank">
+              <img src="twitter.png" alt="Twitter" class="galleryimg2">
+            </a>
+          </div>
+          <div class="imgg6">
+            <a href="https://www.facebook.com/" target="_blank">
+              <img src="facebook.png" alt="Facebook" class="galleryimg3">
+            </a>
+          </div>
+          <div class="imgg6">
+            <a href="https://www.instagram.com/" target="_blank">
+              <img src="instagram.jpg" alt="Instagram" class="galleryimg4">
+            </a>
+          </div>
+        </div>
+    </div>      
+    <hr />
+  </div>
+  <script>
+    // Get user data from sessionStorage
+    const userData = JSON.parse(sessionStorage.getItem('user') || '{}');
+    
+    // Update the sign in button with logout button if logged in
+    const signInLink = document.getElementById('signInLink');
+    const userNameDisplay = document.getElementById('userNameDisplay');
+
+    if (userData.name) {
+        signInLink.style.display = 'none';
+        userNameDisplay.style.display = 'block';
+    }
+
+    function logout() {
+        sessionStorage.removeItem('user');
+        window.location.href = '/signin';
+    }
+
+    // Add smooth scrolling behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                    duration: 2000 // Slower scroll speed (2 seconds)
+                });
+            }
+        });
+    });
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
