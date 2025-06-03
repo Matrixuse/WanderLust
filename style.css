@@ -1,0 +1,190 @@
+* {
+    font-family: 'montserrat', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    color: black;
+    box-sizing: border-box;
+      
+}
+.body{
+    overflow-y: auto;
+}
+
+.upperbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    height: 100px;
+    width: 100%;
+    background-color: rgb(105, 206, 231);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 30px;
+    
+}
+ 
+
+.upperleft {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: auto;
+}
+
+.upperbar h1 {
+    color: black;
+    font-size: 40px;
+    margin-top: 30px;
+    font-family: poppins;
+    font-weight: 800;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-top: 30px;
+}
+.sign {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    font-size: 18px;
+    margin-right: 20px;
+    height: 3rem;
+    width: 100px;
+    margin-top: 30px;
+}
+.navbar {
+    background-color: rgb(105, 206, 231); /* Bluish background */
+    width: 100%;
+}
+  
+.navbar ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 1rem;
+    gap: 3rem;
+}
+
+.navbar ul li {
+    margin: 0 1rem;
+}
+.navbar ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    font-weight: 550;
+    transition: color 0.3s;
+} 
+.navbar ul li a:hover {
+    color: #333;
+}
+.heading {
+    font-size: 60px;
+    margin-top: 40px;
+    padding: 0;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 800;
+}
+.search-container {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* Space between input fields and button */
+    margin: 2rem 0;
+}
+.search-container input,
+.search-container button {
+    padding: 0.5rem;
+    font-size: 24px;
+}
+.search-container input {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    height: 70px;
+    width: 450px;
+}
+.search-container button {
+    border: none;
+    border-radius: 40px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 70px;
+    width: 200px;
+}
+  
+.search-container button:hover {
+    background-color: #667176;
+}
+.main h3{
+    font-size: 40px;
+    margin-left: 50px;
+}
+.images-containeror {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20rem;
+    margin: 2rem 0;    
+} 
+.image-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+    gap: 2rem;
+    padding: 2rem 4rem;
+    justify-items: center;
+}
+.gallery-img {
+    width: 30%;  /* Adjust width as needed to fit three images in a row */
+    max-width: 300px; /* Optional: limits the maximum size */
+    border-radius: 8px;
+    object-fit: cover;
+    height: 300px; 
+    width: 700px;
+}
+.card-title{
+    font-size: 30px;
+    font-weight: 500;
+}
+.foo{
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.galleryimg1{
+    height: 60px;
+    width: 60px;
+}
+.galleryimg2{
+    margin-top: 7px;
+    height: 50px;
+    width: 50px;
+}
+.galleryimg3{
+    height: 50px;
+    width: 100px;
+    margin-top: 7px;
+}
+.galleryimg4{
+    height: 60px;
+    width: 100px;
+    margin-top: 7px;
+}
+.logos{
+    margin-left: 190px;
+    flex: column;
+    display: flex;
+    gap: 50px;
+}
